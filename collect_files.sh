@@ -1,3 +1,2 @@
-#!/bin/bash
-input_dir=$1
-output_dir=$2
+dir1 = sys.argv[1]
+dir2 = sys.argv[2]
