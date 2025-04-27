@@ -16,4 +16,4 @@ def main(now, dim1, dim2):
     for i in os.listdir(dim1):
         shutil.copy(os.path.join(dim1, i), dim2)
 main(1, import_dir, output_dir)
-' "$max_depth" "$import_dir" "$output_dir"
+' "$@"
