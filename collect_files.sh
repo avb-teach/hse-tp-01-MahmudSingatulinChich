@@ -5,7 +5,7 @@ import os
 import shutil
 import_dir = sys.argv[1]
 output_dir = sys.argv[2]
-max_depth = int(sys.argv[4])
+max_depth = int(sys.argv[3])
 flag = 0
 for frst, sec, thrd in os.walk(import_dir):
     if flag < max_depth:
