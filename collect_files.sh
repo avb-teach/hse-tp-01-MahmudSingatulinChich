@@ -13,4 +13,4 @@ for frst, sec, thrd in os.walk(import_dir):
         continue
     for chich in thrd:
         shutil.copy(os.path.join(frst, chich), os.path.join(output_dir, chich))
-' "$1" "$2"
+' "$@"
