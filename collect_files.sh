@@ -5,7 +5,7 @@ import os
 import shutil
 import_dir = sys.argv[1]
 output_dir = sys.argv[2]
-max_depth = int(sys.argv[4])
+max_depth = int(input())
 def main(now, dim1, dim2):
     if now > max_depth:
         return
