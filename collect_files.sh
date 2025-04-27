@@ -6,9 +6,9 @@ python3 -c '
 import sys
 import os
 import shutil
-import_dir = sys.argv[3]
-output_dir = sys.argv[4]
-max_depth = int(sys.argv[2])
+import_dir = sys.argv[2]
+output_dir = sys.argv[3]
+max_depth = int(sys.argv[1])
 def main(now, dim1, dim2):
     if now > max_depth:
         return
