@@ -13,10 +13,12 @@ max_depth = int(sys.argv[1])
 def main(now, dim1, dim2):
     if now > max_depth:
         return
-    if not os.path.exists(dim2):
-        os.makedirs(dim2)
-    for i in os.listdir(dim1):
-        shutil.copy(os.path.join(dim1, i), dim2)
+    else:
+        for i in os.listdir(dim1):
+            if os.path.isdir(os.path.join(dim1, i)):
+                main(now + 1, os.path.join(dim1, i), os.path.join(dim2, i))
+            else:
+                shutil.copy2(os.path.join(dim1, i), os.path.join(dim2, i))
 main(1, import_dir, output_dir)
 ' "$import_dir" "$output_dir"
 fi
