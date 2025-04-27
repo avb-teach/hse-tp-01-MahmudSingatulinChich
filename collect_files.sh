@@ -1,11 +1,14 @@
 #!/bin/bash
+input_dir=$3
+output_dir=$4
+max_depth=$2
 python3 -c '
 import sys
 import os
 import shutil
-import_dir = sys.argv[1]
-output_dir = sys.argv[2]
-max_depth = int(input())
+import_dir = sys.argv[3]
+output_dir = sys.argv[4]
+max_depth = int(sys.argv[2])
 def main(now, dim1, dim2):
     if now > max_depth:
         return
