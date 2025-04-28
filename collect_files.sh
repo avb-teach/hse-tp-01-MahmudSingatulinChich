@@ -23,7 +23,7 @@ def check(output_dir, file):
     i = 1
     flag = file
     while os.path.exists(os.path.join(output_dir, flag)):
-        flag = f"{one}_{counter}{two}"
+        flag = f"{one}_{i}{two}"
         i += 1
     return flag
 def main(input_dir, output_dir, max_depth, now=1):
