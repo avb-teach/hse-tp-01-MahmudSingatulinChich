@@ -42,4 +42,4 @@ def main(inp, out, now):
         else:
             shutil.copy2(k, os.path.join(out, check(out, j)))
 main(input_dir, output_dir, 0)
-' "$input_dir" "$output_dir" "$max_depth"
+' "$input_dir" "$output_dir"
