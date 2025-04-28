@@ -19,6 +19,8 @@ def main(now, dim1, dim2):
             continue
         for i in thrd:
             shutil.copy2(os.path.join(frst, i), output_dir)
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 main(max_depth, import_dir, output_dir)
 ' "$import_dir" "$output_dir"
 fi
