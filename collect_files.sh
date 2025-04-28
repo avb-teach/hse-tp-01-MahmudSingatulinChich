@@ -34,7 +34,7 @@ def main(inp, out, now):
     arr = []
     for i in os.listdir(inp):
         arr.append((os.path.join(inp, i), i))
-    arr.sort(key=lambda x: (os.path.isdir(x[0]), x[1]))
+    arr.sort(key=lambda x: (not os.path.isdir(x[0]), x[1]))
     for k, j in arr:
         chich = os.path.join(out, j)
         if os.path.isdir(k):
