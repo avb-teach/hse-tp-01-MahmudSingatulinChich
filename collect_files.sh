@@ -12,13 +12,20 @@ if [ ! -d "$output_dir" ]; then
   mkdir -p "$output_dir"
 fi
 python3 -c '
-
 import sys
 import os
 import shutil
 input_dir = sys.argv[1]
 output_dir = sys.argv[2]
 max_depth = int(sys.argv[3])
+def check(output_dir, file):
+    one, two = os.path.splitext(file)
+    i = 1
+    flag = file
+    while os.path.exists(os.path.join(output_dir, flag)):
+        flag = f"{one}_{counter}{two}"
+        i += 1
+    return flag
 def main(input_dir, output_dir, max_depth, now=1):
     if now > max_depth:
         return
@@ -26,7 +33,7 @@ def main(input_dir, output_dir, max_depth, now=1):
         if frst[len(input_dir):].count(os.sep) >= max_depth:
             continue
         for i in thrd:
-            shutil.copy2(os.path.join(frst, i), os.path.join(output_dir, i))
+            shutil.copy2(os.path.join(frst, i), os.path.join(output_dir, check(output_dir, i)))
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 main(input_dir, output_dir, max_depth)
