@@ -12,6 +12,7 @@ if [ ! -d "$output_dir" ]; then
   mkdir -p "$output_dir"
 fi
 python3 -c '
+
 import sys
 import os
 import shutil
