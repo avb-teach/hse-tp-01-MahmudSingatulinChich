@@ -1,8 +1,8 @@
 #!/bin/bash
-if [ "$1" == "--max_depth" ]; then
-    import_dir=$3
-    output_dir=$4
-    max_depth=$2
+if [ "$3" == "--max_depth" ]; then
+    import_dir=$1
+    output_dir=$2
+    max_depth=$4
     python3 -c '
 import sys
 import os
