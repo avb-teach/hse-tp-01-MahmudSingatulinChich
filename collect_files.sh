@@ -18,7 +18,7 @@ def main(now, dim1, dim2):
         if new >= max_depth:
             continue
         for i in thrd:
-            shutil.copy2(os.path.join(frst, i), output_dir)
+            shutil.copy2(os.path.join(frst, i), os.path.join(output_dir, i))
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 main(max_depth, import_dir, output_dir)
