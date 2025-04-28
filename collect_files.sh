@@ -1,4 +1,7 @@
 #!/bin/bash
+if [ "$#" -lt 2 ]; then
+  exit 1
+fi
 input_dir=$1
 output_dir=$2
 max_depth=0
@@ -7,6 +10,12 @@ if [ "$3" == "--max_depth" ]; then
     exit 1
   fi
   max_depth=$4
+fi
+if [ ! -d "$input_dir" ]; then
+  exit 1
+fi
+if [ ! -d "$output_dir" ]; then
+  mkdir -p "$output_dir"
 fi
     python3 -c '
 import sys
