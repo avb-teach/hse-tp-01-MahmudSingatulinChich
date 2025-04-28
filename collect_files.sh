@@ -1,8 +1,13 @@
 #!/bin/bash
+input_dir=$1
+output_dir=$2
+max_depth=0
 if [ "$3" == "--max_depth" ]; then
-    import_dir=$1
-    output_dir=$2
-    max_depth=$4
+  if [ -z "$4" ]; then
+    exit 1
+  fi
+  max_depth=$4
+fi
     python3 -c '
 import sys
 import os
@@ -23,4 +28,3 @@ if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 main(max_depth, import_dir, output_dir)
 ' "$import_dir" "$output_dir"
-fi
