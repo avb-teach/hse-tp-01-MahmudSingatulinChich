@@ -26,15 +26,20 @@ def check(output_dir, file):
         flag = f"{one}_{i}{two}"
         i += 1
     return flag
-def main(input_dir, output_dir, max_depth, now=0):
+def main(inp, out, now):
     if now > max_depth:
         return
-    for frst, sec, thrd in os.walk(input_dir):
-        if frst[len(input_dir):].count(os.sep) >= max_depth:
-            continue
-        for i in thrd:
-            shutil.copy2(os.path.join(frst, i), os.path.join(output_dir, check(output_dir, i)))
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
-main(input_dir, output_dir, max_depth)
+    if not os.path.exists(out):
+        os.makedirs(out)
+    arr = []
+    for i in os.listdir(inp):
+        arr.append((os.path.join(inp, i), i))
+    arr.sort(key=lambda x: (os.path.isdir(x[0]), x[1]))
+    for k, j in arr:
+        chich = os.path.join(out, j)
+        if os.path.isdir(k):
+            main(k, chich, now + 1)
+        else:
+            shutil.copy2(k, os.path.join(out, check(out, j)))
+main(input_dir, output_dir, 0)
 ' "$input_dir" "$output_dir" "$max_depth"
