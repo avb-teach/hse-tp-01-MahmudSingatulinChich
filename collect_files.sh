@@ -12,9 +12,9 @@ fi
 import sys
 import os
 import shutil
-import_dir = sys.argv[2]
-output_dir = sys.argv[3]
-max_depth = int(sys.argv[1])
+import_dir = sys.argv[1]
+output_dir = sys.argv[2]
+max_depth = int(sys.argv[3])
 def main(max_depth, dim1, dim2, now=1):
     if now > max_depth:
         return
