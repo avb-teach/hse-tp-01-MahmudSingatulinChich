@@ -10,7 +10,7 @@ import shutil
 import_dir = sys.argv[2]
 output_dir = sys.argv[3]
 max_depth = int(sys.argv[1])
-def main(now, dim1, dim2):
+def main(max_depth, dim1, dim2, now=1):
     if now > max_depth:
         return
     for fsrt, sec, thrd in os.walk(import_dir):
