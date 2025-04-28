@@ -1,21 +1,9 @@
 #!/bin/bash
-if [ "$#" -lt 2 ]; then
-  exit 1
-fi
 import_dir=$1
 output_dir=$2
 max_depth=0
-if [ "$3" == "--max_depth" ]; then
-  if [ -z "$4" ]; then
-    exit 1
-  fi
+if [[ "$3" == "--max_depth" && "$4" =~ ^[0-9]+$ ]]; then
   max_depth=$4
-fi
-if [ ! -d "$import_dir" ]; then
-  exit 1
-fi
-if [ ! -d "$output_dir" ]; then
-  mkdir -p "$output_dir"
 fi
     python3 -c '
 import sys
