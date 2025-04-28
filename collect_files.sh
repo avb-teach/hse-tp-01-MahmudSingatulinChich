@@ -2,7 +2,7 @@
 if [ "$#" -lt 2 ]; then
   exit 1
 fi
-input_dir=$1
+import_dir=$1
 output_dir=$2
 max_depth=0
 if [ "$3" == "--max_depth" ]; then
@@ -11,7 +11,7 @@ if [ "$3" == "--max_depth" ]; then
   fi
   max_depth=$4
 fi
-if [ ! -d "$input_dir" ]; then
+if [ ! -d "$import_dir" ]; then
   exit 1
 fi
 if [ ! -d "$output_dir" ]; then
