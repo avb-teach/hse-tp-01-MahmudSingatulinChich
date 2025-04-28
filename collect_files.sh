@@ -26,7 +26,7 @@ def check(output_dir, file):
         flag = f"{one}_{i}{two}"
         i += 1
     return flag
-def main(input_dir, output_dir, max_depth, now=1):
+def main(input_dir, output_dir, max_depth, now=0):
     if now > max_depth:
         return
     for frst, sec, thrd in os.walk(input_dir):
